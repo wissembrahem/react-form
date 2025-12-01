@@ -2,11 +2,33 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-const [travelTitle, setTravelTitle] = useState("Road trip");
+  const [travelTitles, setTravelTitles] = useState([
+    "Visitare Cartagine e i suoi monumenti",
+    "Scoprire il punto più a nord del continente africano",
+  ]);
+  const [newTravelTitle, setNewTravelTitle] = useState('');
+
+  function addTravelTitle(event) {
+    event.preventDefault();
+  }
+
   return (
     <>
-    <h1>{travelTitle}</h1>
-    <input type="text" value={travelTitle}/>
+      <main>
+        <form onSubmit={}>
+          <input type="text" value={newTravelTitle} onChange={(event) => {
+            setNewTravelTitle(event.target.value)
+          }} />
+          <button type='submit'>send travel points</button>
+        </form>
+        <ul>
+          {travelTitles.map((travelTitle, index) => {
+            return (
+              <li key={index}>{travelTitle}</li>
+            )
+          })}
+        </ul>
+      </main>
     </>
   )
 }
