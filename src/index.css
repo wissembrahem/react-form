@@ -2,3 +2,6 @@ h1 {
     display: flex;
     justify-content: center;
 }
+body {
+    background-image: url(../public/tunisia.png);
+}
